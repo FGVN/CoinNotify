@@ -1,0 +1,180 @@
+﻿TRON
+0.080000
+Litecoin
+98.410004
+Polkadot
+5.550000
+Avalanche
+15.230000
+Bitcoin Cash
+265.429993
+Wrapped Bitcoin
+30953.240234
+Shiba Inu
+0.000000
+Toncoin
+1.360000
+Dai
+1.000000
+Binance USD
+1.000000
+Chainlink
+7.000000
+UNUS SED LEO
+3.970000
+Stellar
+0.130000
+Uniswap
+6.030000
+Cosmos
+9.930000
+Monero
+161.320007
+TrueUSD
+1.000000
+Ethereum Classic
+19.559999
+OKB
+44.180000
+Lido DAO
+2.340000
+Filecoin
+4.580000
+Internet Computer
+4.390000
+Hedera
+0.050000
+Aptos
+7.580000
+Arbitrum
+1.270000
+Cronos
+0.060000
+NEAR Protocol
+1.580000
+VeChain
+0.020000
+Quant
+104.370003
+Aave
+82.989998
+The Graph
+0.120000
+Optimism
+1.510000
+Stacks
+0.690000
+BitDAO
+0.520000
+MultiversX
+37.029999
+Algorand
+0.120000
+The Sandbox
+0.460000
+Maker
+900.940002
+EOS
+0.800000
+Tezos
+0.890000
+Immutable
+0.780000
+Theta Network
+0.820000
+Fantom
+0.290000
+Decentraland
+0.430000
+ApeCoin
+2.140000
+Axie Infinity
+6.590000
+Synthetix
+2.910000
+Render Token
+2.100000
+Injective
+9.480000
+Rocket Pool
+38.080002
+Curve DAO Token
+0.850000
+USDD
+1.000000
+Bitcoin SV
+37.080002
+Pepe
+0.000000
+Neo
+9.480000
+Flow
+0.640000
+Conflux
+0.200000
+KuCoin Token
+6.210000
+Kava
+0.950000
+eCash
+0.000000
+Chiliz
+0.080000
+Gala
+0.030000
+Pax Dollar
+0.990000
+Gemini Dollar
+0.990000
+Klaytn
+0.170000
+Compound
+69.529999
+GMX
+59.930000
+IOTA
+0.190000
+Zcash
+32.320000
+Terra Classic
+0.000000
+Frax Share
+6.720000
+PAX Gold
+1936.680054
+Tether Gold
+1956.250000
+Sui
+0.710000
+XDC Network
+0.030000
+Mina
+0.500000
+BitTorrent(New)
+0.000000
+Huobi Token
+2.780000
+GateToken
+4.360000
+Casper
+0.040000
+WOO Network
+0.240000
+Dash
+35.430000
+Nexo
+0.640000
+THORChain
+1.060000
+Trust Wallet Token
+0.850000
+Zilliqa
+0.020000
+dYdX
+2.150000
+PancakeSwap
+1.590000
+1inch Network
+0.350000
+Convex Finance
+4.160000
