@@ -5,12 +5,17 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 using CoinNotify.Models;
+using CoinNotify.Controllers;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 var botClient = new TelegramBotClient("6333881612:AAEB9jLJR4jVj8HldNL9jdhU4SoM6qwY1qc");
 
 //getting coins
 CoinParser parser = new CoinParser();
 var coins = parser.GetCoins();
+
+UsersController usersController = new UsersController();
 
 using CancellationTokenSource cts = new();
 
@@ -49,13 +54,14 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
     Console.WriteLine($"Received a '{messageText}' message in chat {chatId}.");
 
 
-    if(message.Text == "Check")
+
+    if (message.Text == "View Current Prices")
     {
         List<KeyboardButton[]> buttonData = new List<KeyboardButton[]>();
 
         foreach (var i in coins)
         {
-            buttonData.Add( new KeyboardButton[] { i._name } );
+            buttonData.Add(new KeyboardButton[] { i._name });
         }
 
 
@@ -63,17 +69,145 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
 
         Message sentMessage = await botClient.SendTextMessageAsync(
             chatId: chatId,
-            text: "A message with an inline keyboard markup",
+            text: "Choose a coin",
             replyMarkup: inlineKeyboard,
             cancellationToken: cancellationToken);
 
-        
+
     }
-    if (coins.Select(x => x._name).Contains(update.Message.Text))
+    else if (coins.Select(x => x._name).Contains(update.Message.Text))
     {
         Message sentMessage = await botClient.SendTextMessageAsync(
             chatId: chatId,
             text: coins.FirstOrDefault(x => x._name == update.Message.Text)._price.ToString(),
+            cancellationToken: cancellationToken);
+    }
+    else if (message.Text == "Set new notification")
+    {
+        List<KeyboardButton[]> buttonData = new List<KeyboardButton[]>();
+
+        foreach (var i in coins)
+        {
+            buttonData.Add(new KeyboardButton[] { i._name + " - " + i._price });
+        }
+
+
+        ReplyKeyboardMarkup inlineKeyboard = new ReplyKeyboardMarkup(buttonData.ToArray());
+
+        Message sentMessage = await botClient.SendTextMessageAsync(
+            chatId: chatId,
+            text: "Choose coin",
+            replyMarkup: inlineKeyboard,
+            cancellationToken: cancellationToken);
+    }
+    else if (coins.Select(x => x._name).Contains(update.Message.Text.ToString().Split(" - ")[0])
+        && update.Message.Text.ToString().Split(" - ")[1] != null)
+    {
+        Console.WriteLine("coin set choose");
+        Message sentMessage = await botClient.SendTextMessageAsync(
+            chatId: chatId,
+            text: "Enter a price for notification in format: \n'coin_name : notification_price'",
+            cancellationToken: cancellationToken);
+    }
+    else if (coins.Select(x => x._name).Contains(update.Message.Text.ToString().Split(" : ")[0])
+        && update.Message.Text.ToString().Split(" : ")[1] != null) 
+    {
+        var coin_name = update.Message.Text.ToString().Split(" : ")[0];
+        var coin_price = update.Message.Text.ToString().Split(" : ")[1];
+
+        bool res = usersController.AddNotify(chatId.ToString(), coin_name, coin_price);
+
+        if (res)
+        {
+            Message sentMessage = await botClient.SendTextMessageAsync(
+            chatId: chatId,
+            text: "Notification added",
+            cancellationToken: cancellationToken);
+        }
+        else
+        {
+            Message sentMessage = await botClient.SendTextMessageAsync(
+            chatId: chatId,
+            text: "Error occured",
+            cancellationToken: cancellationToken);
+        }
+    }
+    else if (message.Text == "Check my notifications")
+    {
+        var notifications = usersController.GetNotifications(chatId.ToString());
+        if (notifications.Any())
+        {
+            foreach(var i in notifications)
+            {
+                Message sentMessage = await botClient.SendTextMessageAsync(
+                chatId: chatId,
+                text: i._name + " - " + i._price,
+                cancellationToken: cancellationToken);
+            }
+        }
+        else
+        {
+            Message sentMessage = await botClient.SendTextMessageAsync(
+            chatId: chatId,
+            text: "Currently you dont have any notifications setted",
+            cancellationToken: cancellationToken);
+        }
+    }
+    else if(message.Text == "Delete notifiaction")
+    {
+        var notifications = usersController.GetNotifications(chatId.ToString());
+        if (notifications.Any())
+        {
+            foreach (var i in notifications)
+            {
+                Message sentMessageMany = await botClient.SendTextMessageAsync(
+                chatId: chatId,
+                text: i._name + " - " + i._price,
+                cancellationToken: cancellationToken);
+            }
+            Message sentMessage = await botClient.SendTextMessageAsync(
+            chatId: chatId,
+            text: "Enter notification to delete in format:\ndelete 'coin_name'",
+            cancellationToken: cancellationToken);
+        }
+        else
+        {
+            Message sentMessage = await botClient.SendTextMessageAsync(
+            chatId: chatId,
+            text: "Currently you dont have any notifications setted",
+            cancellationToken: cancellationToken);
+        }
+
+    }
+
+    else if (message.Text.ToString().Split(" ")[0].Contains("delete"))
+    {
+        string coin_name = message.Text.ToString().Split(" ")[1];
+        usersController.DeleteNotification(chatId.ToString(), coin_name);
+        //add incorrect data handling
+
+        Message sentMessage = await botClient.SendTextMessageAsync(
+        chatId: chatId,
+        text: "Notification deleted",
+        cancellationToken: cancellationToken);
+    }
+    else
+    {
+
+        List<KeyboardButton[]> buttonData = new List<KeyboardButton[]>();
+
+        buttonData.Add(new KeyboardButton[] { "Check my notifications" });
+        buttonData.Add(new KeyboardButton[] { "Set new notification" });
+        buttonData.Add(new KeyboardButton[] { "Delete notifiaction" });
+        buttonData.Add(new KeyboardButton[] { "View Current Prices" });
+
+        //"Check my notifications", "Set new notification", "Delete notifiaction", "View Current Prices" }
+        ReplyKeyboardMarkup inlineKeyboard = new ReplyKeyboardMarkup(buttonData.ToArray());
+
+        Message sentMessage = await botClient.SendTextMessageAsync(
+            chatId: chatId,
+            text: "What do you want to do?",
+            replyMarkup: inlineKeyboard,
             cancellationToken: cancellationToken);
     }
 }

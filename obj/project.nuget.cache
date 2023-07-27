@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "w3tmR/OCFkdpjJVt7agDAhsfs0LwpYs1JjQnfqBTJzdqwvX2jqPCbo1wr435lga2tfh2wuZGUdSHPxnJ5OREdg==",
+  "dgSpecHash": "cz2hY6VFJUkKqhT4vGhNHqau/ePO0s4Q1ICxvdJvdZ4CBcXDmPQ/YvX+3PJxRCfN7hPeoYtPuCerApF2lw58Ew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ForgiveNo\\source\\repos\\CoinNotify\\CoinNotify.csproj",
+  "projectFilePath": "C:\\Users\\FGVN\\source\\repos\\CoinNotify\\CoinNotify.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ForgiveNo\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\ForgiveNo\\.nuget\\packages\\telegram.bot\\19.0.0\\telegram.bot.19.0.0.nupkg.sha512"
+    "C:\\Users\\FGVN\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\FGVN\\.nuget\\packages\\telegram.bot\\19.0.0\\telegram.bot.19.0.0.nupkg.sha512"
   ],
   "logs": []
 }

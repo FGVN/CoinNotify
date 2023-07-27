@@ -12,10 +12,16 @@ namespace CoinNotify.Models
         public string _name;
         public double _price;
 
-        public Coin(string name, double price)
+        public Coin(string _name, double _price)
         {
-            _name = name;
-            _price = price;
+            this._name = _name;
+            this._price = _price;
+        }
+
+        public Coin()
+        {
+            _name = "";
+            _price = 0;
         }
 
     }

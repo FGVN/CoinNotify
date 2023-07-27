@@ -8,18 +8,24 @@ namespace CoinNotify.Models
 {
     internal class User
     {
-        string _id;
-        List<Coin> _coins;
+        public string _id;
+        public List<Coin> _coins;
 
-        public User(string id)
+        public User() 
         {
-            _id = id;
+            this._id = "0";
+            this._coins = new List<Coin>();
+        }
+
+        public User(string _id)
+        {
+            this._id = _id;
             _coins = new List<Coin>();
         }
-        public User(string id, List<Coin> coins)
+        public User(string _id, List<Coin> _coins)
         {
-            _id = id;
-            _coins = coins;
+            this._id = _id;
+            this._coins = _coins;
         }
     }
 }

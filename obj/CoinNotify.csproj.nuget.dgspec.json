@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ForgiveNo\\source\\repos\\CoinNotify\\CoinNotify.csproj": {}
+    "C:\\Users\\FGVN\\source\\repos\\CoinNotify\\CoinNotify.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ForgiveNo\\source\\repos\\CoinNotify\\CoinNotify.csproj": {
+    "C:\\Users\\FGVN\\source\\repos\\CoinNotify\\CoinNotify.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ForgiveNo\\source\\repos\\CoinNotify\\CoinNotify.csproj",
+        "projectUniqueName": "C:\\Users\\FGVN\\source\\repos\\CoinNotify\\CoinNotify.csproj",
         "projectName": "CoinNotify",
-        "projectPath": "C:\\Users\\ForgiveNo\\source\\repos\\CoinNotify\\CoinNotify.csproj",
-        "packagesPath": "C:\\Users\\ForgiveNo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ForgiveNo\\source\\repos\\CoinNotify\\obj\\",
+        "projectPath": "C:\\Users\\FGVN\\source\\repos\\CoinNotify\\CoinNotify.csproj",
+        "packagesPath": "C:\\Users\\FGVN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\FGVN\\source\\repos\\CoinNotify\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ForgiveNo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\FGVN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -51,7 +51,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -60,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }
