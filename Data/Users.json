@@ -1,15 +1,6 @@
 [
   {
     "_id": "283188328",
-    "_coins": [
-      {
-        "_name": "Litecoin",
-        "_price": 100.0
-      },
-      {
-        "_name": "TRON",
-        "_price": 0.2
-      }
-    ]
+    "_coins": []
   }
 ]

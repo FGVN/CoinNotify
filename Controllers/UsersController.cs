@@ -1,8 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Security.Cryptography;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿using System.Globalization;
 using CoinNotify.Models;
 using Newtonsoft.Json;
 
@@ -55,32 +51,15 @@ namespace CoinNotify.Controllers
 
         public List<Coin> GetNotifications(string chatId) => GetUsers().FirstOrDefault(x => x._id == chatId)._coins;
 
-        public bool DeleteNotification(string chatId, string coin_name)
+        public bool DeleteNotification(string chatId, string notificationIndex)
         {
+            if(!int.TryParse(notificationIndex, out int index))
+            {
+                return false;
+            }
             var users = GetUsers();
 
-            User userToDelete = users.FirstOrDefault(user => user._id == chatId);
-
-            // Check if the User object was found
-            if (userToDelete != null)
-            {
-                // Find the Coin object in the User's _coins list that matches the given coin name
-                Coin coinToDelete = userToDelete._coins.FirstOrDefault(coin => coin._name == coin_name);
-
-                // Check if the Coin object was found
-                if (coinToDelete != null)
-                {
-                    // Remove the Coin object from the User's _coins list
-                    userToDelete._coins.Remove(coinToDelete);
-
-                    // If you want to delete the entire user if they have no coins left, you can add this check:
-                    if (userToDelete._coins.Count == 0)
-                    {
-                        users.Remove(userToDelete);
-                    }
-                }
-            }
-
+            users.FirstOrDefault(user => user._id == chatId)._coins.RemoveAt(Convert.ToInt32(notificationIndex)-1);
 
             string json = JsonConvert.SerializeObject(users, Formatting.Indented);
 
