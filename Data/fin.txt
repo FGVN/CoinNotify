@@ -1,180 +1,174 @@
-﻿TRON
-0.08000
 Litecoin
-98.410004
+91.059998
+Polygon
+0.740000
 Polkadot
-5.550000
-Avalanche
-15.230000
-Bitcoin Cash
-265.429993
-Wrapped Bitcoin
-30953.240234
+5.230000
 Shiba Inu
 0.000000
-Toncoin
-1.360000
+Wrapped Bitcoin
+29316.250000
+Bitcoin Cash
+240.059998
+Avalanche
+13.200000
 Dai
 1.000000
+Toncoin
+1.280000
+Stellar
+0.160000
+Chainlink
+7.750000
 Binance USD
 1.000000
-Chainlink
-7.000000
 UNUS SED LEO
-3.970000
-Stellar
-0.130000
+3.960000
 Uniswap
-6.030000
+6.090000
 Cosmos
-9.930000
-Monero
-161.320007
+9.030000
 TrueUSD
 1.000000
+Monero
+162.360001
 Ethereum Classic
-19.559999
+18.480000
 OKB
-44.180000
-Lido DAO
-2.340000
-Filecoin
-4.580000
+42.779999
+$<!-- -->42.78
+4.400000
 Internet Computer
-4.390000
+4.310000
 Hedera
 0.050000
+Lido DAO
+1.940000
+Mantle
+0.520000
 Aptos
-7.580000
-Arbitrum
-1.270000
+7.090000
 Cronos
 0.060000
-NEAR Protocol
-1.580000
+Arbitrum
+1.180000
 VeChain
 0.020000
+NEAR Protocol
+1.400000
 Quant
-104.370003
-Aave
-82.989998
-The Graph
-0.120000
-Optimism
-1.510000
-Stacks
-0.690000
-BitDAO
-0.520000
-MultiversX
-37.029999
-Algorand
-0.120000
-The Sandbox
-0.460000
+108.690002
 Maker
-900.940002
+1239.209961
+Aave
+72.239998
+The Graph
+0.110000
+Optimism
+1.490000
+Algorand
+0.110000
+Axie Infinity
+6.110000
+MultiversX
+32.730000
+The Sandbox
+0.430000
+Stacks
+0.600000
 EOS
+0.750000
+Immutable
+0.750000
+Theta Network
 0.800000
 Tezos
-0.890000
-Immutable
-0.780000
-Theta Network
-0.820000
-Fantom
-0.290000
-Decentraland
-0.430000
-ApeCoin
-2.140000
-Axie Infinity
-6.590000
+0.840000
 Synthetix
-2.910000
-Render Token
-2.100000
-Injective
-9.480000
-Rocket Pool
-38.080002
-Curve DAO Token
-0.850000
+2.820000
 USDD
 1.000000
+Decentraland
+0.390000
 Bitcoin SV
-37.080002
-Pepe
-0.000000
+35.680000
+Fantom
+0.240000
+Injective
+8.000000
+Render
+1.790000
+Curve DAO Token
+0.730000
 Neo
-9.480000
+8.750000
 Flow
-0.640000
-Conflux
-0.200000
-KuCoin Token
-6.210000
-Kava
-0.950000
+0.580000
 eCash
 0.000000
-Chiliz
+Kava
+0.880000
+Rocket Pool
+29.379999
+$<!-- -->29.38
 0.080000
-Gala
-0.030000
+KuCoin Token
+5.870000
+Compound
+71.959999
 Pax Dollar
 0.990000
-Gemini Dollar
-0.990000
+Conflux
+0.180000
+Gala
+0.020000
+Pepe
+0.000000
 Klaytn
-0.170000
-Compound
-69.529999
+0.160000
 GMX
-59.930000
-IOTA
-0.190000
+56.650002
 Zcash
-32.320000
+30.500000
+IOTA
+0.180000
+PAX Gold
+1947.680054
+Tether Gold
+1956.060059
 Terra Classic
 0.000000
 Frax Share
-6.720000
-PAX Gold
-1936.680054
-Tether Gold
-1956.250000
-Sui
-0.710000
-XDC Network
-0.030000
-Mina
-0.500000
+6.480000
 BitTorrent(New)
 0.000000
-Huobi Token
-2.780000
-GateToken
-4.360000
 Casper
 0.040000
-WOO Network
-0.240000
-Dash
-35.430000
-Nexo
-0.640000
-THORChain
-1.060000
+Huobi Token
+2.680000
+Mina
+0.450000
+Sui
+0.630000
+GateToken
+4.210000
 Trust Wallet Token
-0.850000
+0.890000
+Dash
+32.330002
+Nexo
+0.660000
+Arweave
+5.590000
+Gemini Dollar
+0.980000
+WOO Network
+0.200000
 Zilliqa
 0.020000
 dYdX
-2.150000
-PancakeSwap
-1.590000
+2.070000
+Bone ShibaSwap
+1.400000
 1inch Network
-0.350000
-Convex Finance
-4.160000
+0.310000

@@ -30,7 +30,12 @@ namespace CoinNotify.Models
         public List<Coin> GetCoins()
         {
             List<Coin> coinList = new List<Coin>();
-            string dataDirectory = Path.Combine("..", "..", "..", "Data"); // Combine parent directory with "Data" folder name
+
+          
+        string currentDirectory = Directory.GetCurrentDirectory();
+        
+          Directory.GetParent(currentDirectory)?.FullName;
+            string dataDirectory = Path.Combine(currentDirectory, "Data"); // Combine parent directory with "Data" folder name
             string filePath = Path.Combine(dataDirectory, "fin.txt"); // Combine data directory with "fin.txt" file name
 
             CultureInfo culture = new CultureInfo("en-US"); // Set the culture to use dot as the decimal separator

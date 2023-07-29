@@ -6,6 +6,7 @@ using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 using CoinNotify.Models;
 using CoinNotify.Controllers;
+using System.Diagnostics;
 
 var botClient = new TelegramBotClient("6333881612:AAEB9jLJR4jVj8HldNL9jdhU4SoM6qwY1qc");
 
@@ -51,8 +52,11 @@ async Task UpdateInfo(CancellationToken cancellationToken)
         // Call your method here
         //await UpdateAndCheckMethod(); Takes users list and checks if prices 
         //Updating coins values
-        Console.WriteLine("Check");
-        coins = parser.GetCoins();
+    Console.WriteLine("Check");
+        
+
+
+    coins = parser.GetCoins();
         NotificationController notificationController = new NotificationController();
         foreach( var i in 
             notificationController.CheckNotifications(usersController.GetUsers(), coins))
@@ -78,7 +82,7 @@ async Task UpdateInfo(CancellationToken cancellationToken)
         }
 
         // Wait for 20 seconds before calling the method again
-        await Task.Delay(TimeSpan.FromSeconds(20));
+        await Task.Delay(TimeSpan.FromSeconds(60));
 }
 
 async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)

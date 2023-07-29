@@ -10,7 +10,7 @@ namespace CoinNotify.Controllers
 
         public UsersController()
         {
-            filepath = Path.Combine("..", "..", "..", "Data", "Users.json");
+            filepath = Path.Combine("Data", "Users.json");
         }
         public List<User> GetUsers()
         {
