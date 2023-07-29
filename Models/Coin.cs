@@ -34,7 +34,7 @@ namespace CoinNotify.Models
           
         string currentDirectory = Directory.GetCurrentDirectory();
         
-          Directory.GetParent(currentDirectory)?.FullName;
+        string parentDirectory = Directory.GetParent(currentDirectory)?.FullName;
             string dataDirectory = Path.Combine(currentDirectory, "Data"); // Combine parent directory with "Data" folder name
             string filePath = Path.Combine(dataDirectory, "fin.txt"); // Combine data directory with "fin.txt" file name
 
