@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "6oAhABnsQzW2D6aC2HBkxRhOy4fPMmlh1+IoLfRmNe/VvWt07aNSL1IRV3eJcdMbIfn3liCJeJ2/I+wN8R/G/g==",
+  "dgSpecHash": "cz2hY6VFJUkKqhT4vGhNHqau/ePO0s4Q1ICxvdJvdZ4CBcXDmPQ/YvX+3PJxRCfN7hPeoYtPuCerApF2lw58Ew==",
   "success": true,
-  "projectFilePath": "/home/runner/CoinNotifyTest/CoinNotify.csproj",
+  "projectFilePath": "C:\\Users\\FGVN\\source\\repos\\CoinNotify\\CoinNotify.csproj",
   "expectedPackageFiles": [
-    "/home/runner/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
-    "/home/runner/.nuget/packages/telegram.bot/19.0.0/telegram.bot.19.0.0.nupkg.sha512"
+    "C:\\Users\\FGVN\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\FGVN\\.nuget\\packages\\telegram.bot\\19.0.0\\telegram.bot.19.0.0.nupkg.sha512"
   ],
   "logs": []
 }

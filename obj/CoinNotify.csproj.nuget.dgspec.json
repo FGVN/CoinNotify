@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/runner/CoinNotifyTest/CoinNotify.csproj": {}
+    "C:\\Users\\FGVN\\source\\repos\\CoinNotify\\CoinNotify.csproj": {}
   },
   "projects": {
-    "/home/runner/CoinNotifyTest/CoinNotify.csproj": {
+    "C:\\Users\\FGVN\\source\\repos\\CoinNotify\\CoinNotify.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/runner/CoinNotifyTest/CoinNotify.csproj",
+        "projectUniqueName": "C:\\Users\\FGVN\\source\\repos\\CoinNotify\\CoinNotify.csproj",
         "projectName": "CoinNotify",
-        "projectPath": "/home/runner/CoinNotifyTest/CoinNotify.csproj",
-        "packagesPath": "/home/runner/.nuget/packages/",
-        "outputPath": "/home/runner/CoinNotifyTest/obj/",
+        "projectPath": "C:\\Users\\FGVN\\source\\repos\\CoinNotify\\CoinNotify.csproj",
+        "packagesPath": "C:\\Users\\FGVN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\FGVN\\source\\repos\\CoinNotify\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/runner/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\FGVN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/nix/store/4axlc21msjr9g181l2y6hxsmm4jar8i7-dotnet-sdk-6.0.403/sdk/6.0.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

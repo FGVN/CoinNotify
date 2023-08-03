@@ -8,11 +8,16 @@ using CoinNotify.Models;
 using CoinNotify.Controllers;
 using System.Diagnostics;
 
-var botClient = new TelegramBotClient("6333881612:AAEB9jLJR4jVj8HldNL9jdhU4SoM6qwY1qc");
+string key;
+
+Console.WriteLine("Enter telegram bot key: ");
+key = Console.ReadLine();
+
+var botClient = new TelegramBotClient(key);
 
 //getting coins
 CoinParser parser = new CoinParser();
-var coins = parser.GetCoins();
+var coins = CoinParser.GetCoins();
 
 UsersController usersController = new UsersController();
 
@@ -47,26 +52,26 @@ Console.ReadLine();
 // Send cancellation request to stop bot
 cts.Cancel();
 
+
+//Updates data about coins and handles notifications 
 async Task UpdateInfo(CancellationToken cancellationToken)
 {
-        // Call your method here
-        //await UpdateAndCheckMethod(); Takes users list and checks if prices 
-        //Updating coins values
     Console.WriteLine("Check");
-        
 
+    //Updating coins values
+    coins = CoinParser.GetCoins();
 
-    coins = parser.GetCoins();
-        NotificationController notificationController = new NotificationController();
+    NotificationController notificationController = new NotificationController();
         foreach( var i in 
             notificationController.CheckNotifications(usersController.GetUsers(), coins))
         {
+        //Sending message for every notification price
             Message sentMessage = await botClient.SendTextMessageAsync(
             chatId: i._id,
             text: "Coin " + i._coins[0]._name + " has reached its notify price: " + Math.Abs(i._coins[0]._price),
             cancellationToken: cancellationToken);
 
-        //Deleting notifications that has already been triggered
+        //Deleting notifications that has been triggered
         usersController.DeleteNotification(
                 i._id, 
                 (usersController.GetUsers().
@@ -81,10 +86,11 @@ async Task UpdateInfo(CancellationToken cancellationToken)
 
         }
 
-        // Wait for 20 seconds before calling the method again
-        await Task.Delay(TimeSpan.FromSeconds(60));
+    // Wait for 60 seconds before calling the method again
+    await Task.Delay(TimeSpan.FromSeconds(60));
 }
 
+//Handles messages from users
 async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
 {
     // Only process Message updates: https://core.telegram.org/bots/api#message
@@ -96,9 +102,8 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
 
     var chatId = message.Chat.Id;
 
-    Console.WriteLine($"Received a '{messageText}' message in chat {chatId}.");
-
     //A bit of spaghetti code beacuse c# switch cases don`t handle Linq statements :(
+    //But here is all of the message handling logic
     if (message.Text == "View Current Prices")
     {
         PriceViewHandle(message, chatId, cancellationToken);
@@ -155,6 +160,7 @@ Task HandlePollingErrorAsync(ITelegramBotClient botClient, Exception exception, 
     return Task.CompletedTask;
 }
 
+//Returns buttons with all trackable coins name
 async void PriceViewHandle(Message message, long chatId, CancellationToken cancellationToken)
 {
     List<KeyboardButton[]> buttonData = new List<KeyboardButton[]>();
@@ -174,13 +180,19 @@ async void PriceViewHandle(Message message, long chatId, CancellationToken cance
         cancellationToken: cancellationToken);
 }
 
+//Returns price of the coin
 async void PriceHandle(Message message, long chatId, CancellationToken cancellationToken)
 {
     Message sentMessage = await botClient.SendTextMessageAsync(
             chatId: chatId,
             text: coins.FirstOrDefault(x => x._name == message.Text)._price.ToString(),
             cancellationToken: cancellationToken);
+
+    //Sending default keyboard
+    DefaultHandle(chatId, cancellationToken);
 }
+
+//Returns buttons with all trackable coins and their prices
 async void NotificationHandle(Message message, long chatId, CancellationToken cancellationToken)
 {
     List<KeyboardButton[]> buttonData = new List<KeyboardButton[]>();
@@ -199,29 +211,36 @@ async void NotificationHandle(Message message, long chatId, CancellationToken ca
         replyMarkup: inlineKeyboard,
         cancellationToken: cancellationToken);
 }
+
+//After some button is pressed in previous method - asks for sending message in certain form
 async void NotificationSelectHandle(Message message, long chatId, CancellationToken cancellationToken)
 {
-    Console.WriteLine("coin set choose");
     Message sentMessage = await botClient.SendTextMessageAsync(
         chatId: chatId,
         text: "Enter a price for notification in format: \n'coin_name > or < notification_price'",
         cancellationToken: cancellationToken);
 }
+
+//Reaceives message with notification setup
 async void NotificationAddHandle(Message message, long chatId, CancellationToken cancellationToken)
 {
     string coin_name, coin_price;
+    //if tracking price below some value - saving as coin with negative price
     if (coins.Select(x => x._name).Contains(message.Text.ToString().Split(" < ")[0])
     && message.Text.ToString().Split(" < ")[1] != null)
     {
         coin_name = message.Text.ToString().Split(" < ")[0];
         coin_price = "-" + message.Text.ToString().Split(" < ")[1];
     }
+    //if tracking price higher some value - as usual
     else
     {
         coin_name = message.Text.ToString().Split(" > ")[0];
         coin_price = message.Text.ToString().Split(" > ")[1];
     }
 
+    
+    //Passing data into the controller and responding according to the result
     bool res = usersController.AddNotify(chatId.ToString(), coin_name, coin_price);
 
     string reply;
@@ -237,6 +256,7 @@ async void NotificationAddHandle(Message message, long chatId, CancellationToken
     cancellationToken: cancellationToken);
 }
 
+//Returns all notifications that some user has set up
 async void CheckHandle(Message message, long chatId, CancellationToken cancellationToken)
 {
     var notifications = usersController.GetNotifications(chatId.ToString());
@@ -262,9 +282,14 @@ async void CheckHandle(Message message, long chatId, CancellationToken cancellat
         chatId: chatId,
         text: "Currently you dont have any notifications setted",
         cancellationToken: cancellationToken);
+
+        //Sending default keyboard
+        DefaultHandle(chatId, cancellationToken);
     }
 }
 
+
+//Returns all users notifications and asks to send delete message in certain format
 async void DeleteNotificationHandle(Message message, long chatId, CancellationToken cancellationToken)
 {
     var notifications = usersController.GetNotifications(chatId.ToString());
@@ -296,21 +321,28 @@ async void DeleteNotificationHandle(Message message, long chatId, CancellationTo
         chatId: chatId,
         text: "Currently you dont have any notifications setted",
         cancellationToken: cancellationToken);
+
+        //Sending default keyboard
+        DefaultHandle(chatId, cancellationToken);
     }
 }
 
+//Sends notification to delete value to controller
 async void DeleteHandle(Message message, long chatId, CancellationToken cancellationToken)
 {
     string notify_index = message.Text.ToString().Split(" ")[1];
     usersController.DeleteNotification(chatId.ToString(), notify_index);
-    //add incorrect data handling
 
     Message sentMessage = await botClient.SendTextMessageAsync(
     chatId: chatId,
     text: "Notification deleted",
     cancellationToken: cancellationToken);
+
+    //Sending default keyboard
+    DefaultHandle(chatId, cancellationToken);
 }
 
+//Main menu that returns default keyboard
 async void DefaultHandle(long chatId, CancellationToken cancellationToken)
 {
     List<KeyboardButton[]> buttonData = new List<KeyboardButton[]>();
