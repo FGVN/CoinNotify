@@ -2,7 +2,6 @@
 
 namespace CoinNotify.Models
 {
-
     /// <summary>
     ///Represents data structure to save data about coins
     /// </summary>

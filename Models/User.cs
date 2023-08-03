@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 namespace CoinNotify.Models
 {
+    /// <summary>
+    ///Represents users and their notifications as coin list
+    /// </summary>
     internal class User
     {
         public string _id;
